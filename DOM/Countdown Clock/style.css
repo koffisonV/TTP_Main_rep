@@ -1,0 +1,9 @@
+body{
+    background-color: grey;
+}
+
+p{
+    color: orange;
+    font-family: sans-serif;
+    font-size: larger;
+}

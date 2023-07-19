@@ -1,0 +1,45 @@
+*{
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Noto Sans', sans-serif;
+    line-height: 1.6;
+    background-color: black;
+    color: white;
+}
+
+h1{
+    color: rgb(107, 252, 252);
+    margin-bottom: 1rem;
+}
+
+a{
+    text-decoration: none;
+    font-size: 1.7rem;
+    color: #f01f1f;
+}
+
+.logo{
+    margin: 1rem;
+}
+
+.container{
+    text-align: center;
+}
+
+.pokemon_container{
+    display: inline-block;
+    background-color: #f6b48b;
+    border: 2px solid white;
+    border-radius: 2rem;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.pokemon_container img{
+    margin: 1rem 5rem 1rem 5rem;
+}

@@ -1,0 +1,266 @@
+/* p{
+    color: red;
+} */
+
+/* body{
+    font-size: 34px;
+    color: crimson;
+}
+
+p{
+    color: red;
+}
+
+h1,h2,h3{
+    color: gray;
+} */
+
+/* h1{
+    font-style: italic;
+    font-size: 70px;
+}
+
+.movies{
+    color: darkgoldenrod;
+}
+
+.shows-title{
+    color: rgb(226, 135, 8);
+} */
+/* 
+#recipe-title{
+    text-transform: uppercase;
+}
+
+#desserts{
+    text-align: center;
+} */
+
+/* This selects all elements in the HTML */
+/* *{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+li{
+    color: sandybrown;
+}
+
+.languages{
+    text-transform: uppercase;
+} */
+
+/* body{
+    font-size: 24px;
+    font-family: monospace;
+    line-height: 1.8;
+    background-color: bisque;
+    color: rgb(196, 93, 19);
+}
+
+p{
+    color: rgba(151, 22, 22, 0.862);
+    text-align: center;
+}
+
+h2{
+    color: #ada814;
+    text-align: center;
+} */
+
+/* Units & Sizes */
+/* h1{ */
+    /* Pixels are absolute */
+    /* font-size: 48px; */
+
+    /* rem - adjustable to browser */
+    /* font-size: 3rem; */
+/* } */
+
+/* Box Model */
+/* *{
+    margin - 
+    margin: 0;
+    padding: 0;
+
+    This property changes the box model behavior to border-box, this means that the width and height of an element include the content, padding, and border, but excludes the margin
+    box-sizing: border-box;
+}
+
+.container{
+    border: 2px solid green;
+    border-right: 2px dotted red;
+    border-bottom: 4px solid brown;
+
+    font-size: 1.5rem;
+    padding: 30px;
+    margin: 5px;
+} */
+
+/* body{
+    font-size: 2rem;
+    font-family: monospace;
+}
+
+a{
+    text-decoration: none;
+    cursor: crosshair;
+    color: blueviolet;
+}
+
+a:visited{
+    color: red;
+}
+
+a:hover{
+    color: chartreuse;
+}
+
+a:active{
+    color: darkolivegreen;
+}
+
+a{
+
+} */
+/* 
+body{
+    padding: 5% 10%;
+    font-size: 2rem;
+    font-family: monospace;
+}
+
+ol{
+    list-style-type: upper-roman;
+}
+
+ul{
+    list-style-type: square;
+    text-align: center;
+    list-style-position: inside;
+    color: red; */
+    /* list-style-image: url(../../HTML/images/bolt.jpeg);
+    width: 10px; */
+/* } */
+/* 
+ul li{
+    color: green;
+}
+
+ul li:nth-child(2){
+    color: orange;
+}
+
+ul li:nth-child(3){
+    color: blue;
+}
+
+ul ::marker{
+    color: purple;
+    font-family: fantasy;
+    font-size: 2rem;
+    content: "123";
+} */
+
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 2rem;
+    font-family: monospace;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: black;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    color: blue;
+}
+li{
+    Put all content on 1 line
+    display: inline-block;
+} */
+/* 
+body{
+    font-size: 2rem;
+    font-family: monospace;
+}
+
+.columns{
+    column-count: 4;
+    column-width: 250px;
+    column-rule: 4px solid black;
+    column-gap: 9rem;
+}
+
+.columns p{
+    margin-top: 0;
+}
+
+.columns .quote{
+    margin-top: 2rem;
+    font-size: 3rem;
+    text-align: center;
+    column-span: all;
+}
+
+.nowrap{
+    white-space: nowrap;
+} */
+
+/* Position */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 2rem;
+    font-family: monospace;
+}
+
+.outer-container{
+    border: 3px solid red;
+    width: 900px;
+    height: 500px;
+    margin: 90px;
+        position: relative;
+
+}
+
+.inner-container{
+    border: 3px solid blue;
+    width: 700px;
+    height: 200px;
+    margin: 100px;
+    /* position: relative; */
+}
+
+.box{
+    width: 150px;
+    height: 150px;
+    color: green;
+    padding: 1rem;
+}
+
+.absolute{
+    background-color: green;
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    transition: ;
+}
