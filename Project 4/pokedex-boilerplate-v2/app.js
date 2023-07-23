@@ -18,8 +18,6 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
-
 (async () => {
   try {
     await db.sync({ force: true });
@@ -126,8 +124,6 @@ app.delete("/trainer/:id", async (req, res) => {
     res.status(404).send("Trainer not found");
   }
 });
-
-
 
 // app.get("/", (req, res) => {
 //   const pokemon = pokeBank.list();
