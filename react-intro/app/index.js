@@ -19,4 +19,7 @@ function Counter({increment}){
 const root = ReactDOM.createRoot(document.getElementById("app"));
 root.render(<Counter />);
 
-// When the increment button is clicked, it responds to the onClick event listener that has the function increment past as an argument. In the increment() function, we have a useState initialized with zero that increments by 1. count is then updated in the body element.
+/* When the increment button is clicked, it responds to the onClick event 
+listener that has the function increment past as an argument. In the 
+increment() function, we have a useState initialized with zero that 
+increments by 1. count is then updated in the body element.*/
