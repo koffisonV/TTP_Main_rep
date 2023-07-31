@@ -5882,39 +5882,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Home)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _singlePokemon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./singlePokemon */ "./client/singlePokemon.js");
-/* harmony import */ var _singleTrainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./singleTrainer */ "./client/singleTrainer.js");
-
-
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _singlePokemon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./singlePokemon */ "./client/singlePokemon.js");
+/* harmony import */ var _singleTrainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./singleTrainer */ "./client/singleTrainer.js");
 
 
 
 function Home() {
-  // const [pokemons, setPokemons] = useState([]);
-  //   const [trainers, setTrainers] = useState([]);
-
-  // useEffect(() => {
-  // async function fetchPokemons(){
-  //   const { data } = await axios.get("/api/pokemons");
-  //   setPokemons(data);
-  // }
-
-  // async function fetchTrainers(){
-  //     const { data } = await axios.get("/api/trainers");
-  //     setTrainers(data);
-  // }
-
-  // fetchPokemons();
-  // fetchTrainers();
-  // }, []);
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     id: "main"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h1", null, "Pokedex"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_singlePokemon__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_singleTrainer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Pokedex"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_singlePokemon__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_singleTrainer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 }
 ;
 
@@ -5998,6 +5976,7 @@ function OnePokemon() {
   const {
     id
   } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useParams)();
+  const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     async function fetchSinglePokemon() {
       const {
@@ -6007,9 +5986,14 @@ function OnePokemon() {
     }
     fetchSinglePokemon();
   }, [id]);
+  function handleClick() {
+    navigate(-1);
+  }
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement((react__WEBPACK_IMPORTED_MODULE_1___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", null, singlePokemon.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
     src: singlePokemon.imageUrl
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", null, "Type: ", singlePokemon.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", null, "Trainer: ", singlePokemon.trainerName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", null, "Date caught: ", singlePokemon.date));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", null, "Type: ", singlePokemon.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", null, "Trainer: ", singlePokemon.trainerName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", null, "Date caught: ", singlePokemon.date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
+    onClick: handleClick
+  }, "Go back"));
 }
 
 /***/ }),
@@ -6038,6 +6022,7 @@ function OneTrainer() {
   const {
     id
   } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useParams)();
+  const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     async function fetchSingleTrainer() {
       const {
@@ -6047,9 +6032,14 @@ function OneTrainer() {
     }
     fetchSingleTrainer();
   }, [id]);
+  function handleClick() {
+    navigate(-1);
+  }
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement((react__WEBPACK_IMPORTED_MODULE_1___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", null, singleTrainer.firstname, " ", singleTrainer.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
     src: singleTrainer.imageUrl
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", null, "Team: ", singleTrainer.team));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", null, "Team: ", singleTrainer.team), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
+    onClick: handleClick
+  }, "Go back"));
 }
 
 /***/ }),
@@ -42168,21 +42158,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _Main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Main */ "./client/Main.js");
-// import React from "react";
-// import { ReactDOM } from "react-dom";
-// // import { createRoot } from "react-dom/client";
-// import Main from "./Main";
-
-// // const root = createRoot(document.getElementById("app"));
-// // root.render(<Main />);
-
-// ReactDOM.render(
-//     <React.StrictMode>
-//         <Main />
-//     </React.StrictMode>,
-//     document.getElementById("app")
-// );
-
 
 
 

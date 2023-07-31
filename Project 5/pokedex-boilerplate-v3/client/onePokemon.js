@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function OnePokemon(){
     const [singlePokemon, setSinglePokemon] = useState([]);
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchSinglePokemon(){
@@ -13,6 +14,10 @@ export default function OnePokemon(){
         }
         fetchSinglePokemon();
     }, [id]);
+
+    function handleClick(){
+        navigate(-1);
+    }
     
     return(
         <>
@@ -21,6 +26,7 @@ export default function OnePokemon(){
             <p>Type: {singlePokemon.type}</p>
             <p>Trainer: {singlePokemon.trainerName}</p>
             <p>Date caught: {singlePokemon.date}</p>
+            <button onClick={handleClick}>Go back</button>
         </>
     );
 }

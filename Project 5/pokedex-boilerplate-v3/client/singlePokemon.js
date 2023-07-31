@@ -20,7 +20,6 @@ export default function singlePokemon(){
             {pokemons.map((pokemon) => (
             <li key={pokemon.id}>
                 <Link to={`/pokemon/${pokemon.id}`}>{pokemon.name}</Link>
-                {/* <a href={`api/pokemons/${pokemon.id}`}>{pokemon.name}</a> */}
             </li>
             ))}
         </ul>
