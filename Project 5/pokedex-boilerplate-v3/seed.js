@@ -6,17 +6,17 @@ const seed = async () => {
   // create some trainer
   const ash = await Trainer.create({
     firstname:"Ash",
-    lastName:"Lastname",
+    lastName:"Ketchum",
     team:"Electric"
   });
   const misty = await Trainer.create({
     firstname:"Misty",
-    lastName:"Lastname",
+    lastName:"Waterflower",
     team:"Electric"
   });
   const brock = await Trainer.create({
     firstname:"Brock",
-    lastName:"Lastname",
+    lastName:"Harrison",
     team:"Fire"
   });
 

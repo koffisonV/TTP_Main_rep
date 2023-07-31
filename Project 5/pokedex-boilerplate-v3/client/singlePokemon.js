@@ -1,20 +1,29 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
-export default function OnePokemon(){
-    const [singlePokemon, setSinglePokemon] = useState([]);
+export default function singlePokemon(){
+    const [pokemons, setPokemons] = useState([]);
 
     useEffect(() => {
-        async function fetchSinglePokemon(){
-            const { data } = await axios.get(`/api/pokemons/${id}`);
-            setSinglePokemon(data);
-        }
-        fetchSinglePokemon();
+        async function fetchPokemons(){
+            const { data } = await axios.get("/api/pokemons");
+            setPokemons(data);
+          }
+        fetchPokemons();
     }, []);
     
     return(
         <>
-            <h2>{singlePokemon.name}</h2>
+        <h2>List of Pokemons</h2>
+        <ul>
+            {pokemons.map((pokemon) => (
+            <li key={pokemon.id}>
+                <Link to={`/pokemon/${pokemon.id}`}>{pokemon.name}</Link>
+                {/* <a href={`api/pokemons/${pokemon.id}`}>{pokemon.name}</a> */}
+            </li>
+            ))}
+        </ul>
         </>
     );
-}
+};

@@ -32,7 +32,7 @@ const Pokemon = db.define("pokemon",{
   },
   imageUrl:{
     type: Sequelize.STRING,
-    defaultValue: "pokemon.png"
+    defaultValue: "https://listfist.com/wp-content/uploads/pokemons.jpg"
   },
 })
 
@@ -61,7 +61,7 @@ const Trainer = db.define("trainer",{
   },
   imageUrl:{
     type: Sequelize.STRING,
-    defaultValue: "trainer.png"
+    defaultValue: "https://fictionhorizon.com/wp-content/uploads/2022/12/strongest-trainers.jpg"
   },
 })
 

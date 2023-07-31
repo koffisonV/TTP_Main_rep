@@ -1,0 +1,20 @@
+*{
+    background-color: #ededed;
+}
+
+h1{
+    color: #e24949;
+}
+
+img{
+    height: 200px;
+    width: auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}

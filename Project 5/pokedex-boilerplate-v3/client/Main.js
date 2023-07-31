@@ -1,49 +1,41 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-// import OnePokemon from "./singlePokemon";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import React from "react";
+import Home from "./Home";
+import OnePokemon from "./onePokemon";
+import OneTrainer from "./oneTrainer";
 
-const Main = () => {
-  const [pokemons, setPokemons] = useState([]);
-  const [trainers, setTrainers] = useState([]);
-
-  useEffect(() => {
-    async function fetchPokemons(){
-      const { data } = await axios.get("/api/pokemons");
-      setPokemons(data);
-    }
-
-    async function fetchTrainers(){
-      const { data } = await axios.get("/api/trainers");
-      setTrainers(data);
-    }
-
-    fetchPokemons();
-    fetchTrainers();
-  }, []);
-
+// import singlePokemon from "./singlePokemon"
+export default function Main(){
+  const Layout = () => {
+    return (
+      <>
+        <Outlet />
+      </>
+    );
+  };
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "/", // localhost:1337/
+          element: <Home />,
+        },
+        {
+          path: "pokemon/:id", // localhost:1337/pokemon/1
+          element: <OnePokemon />,
+        },
+        {
+          path: "trainer/:id", // localhost:13337/trainer/2
+          element: <OneTrainer />,
+        },
+      ],
+    },
+  ]);
   return (
-    <div id="main">
-      <h1>Pokedex</h1>
-      <h2>List of Pokemons</h2>
-      <ul>
-        {pokemons.map((pokemon) => (
-          <li key={pokemon.id}>
-            <Link to={`/api/pokemons/${pokemon.id}`}>{pokemon.name}</Link>
-            {/* <a href={`api/pokemons/${pokemon.id}`}>{pokemon.name}</a> */}
-          </li>
-        ))}
-      </ul>
-      <h2>List of Trainers</h2>
-      <ul>
-        {trainers.map((trainer) =>(
-        <li>
-            <strong>{trainer.firstname}</strong> | {trainer.imageUrl}       
-        </li>
-        ))}
-      </ul>
+    <div>
+      <RouterProvider router={router} />
     </div>
   );
 };
-
-export default Main;
