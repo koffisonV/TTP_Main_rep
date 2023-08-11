@@ -5,15 +5,15 @@ import { useCampuses } from "../context/CampusesContext";
 
 export default function Campuses(){
     // const [campuses, setCampuses] = useState([]);
-    const campuses = useCampuses();
+    const { campuses, setCampuses } = useCampuses();
 
-    // useEffect(() => {
-    //     async function fecthCampuses(){
-    //         const { data } = await axios.get("api/campuses");
-    //         setCampuses(data);
-    //     }
-    //     fecthCampuses();
-    // }, []);
+    useEffect(() => {
+        async function fecthCampuses(){
+            const { data } = await axios.get("api/campuses");
+            setCampuses(data);
+        }
+        fecthCampuses();
+    }, []);
 
     return(
         <>
