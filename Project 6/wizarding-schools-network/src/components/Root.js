@@ -12,7 +12,7 @@ const Root = () => {
       <Routes>
         <Route path="/" element={<Main />} />
           <Route path="/wizarding-campuses" element={<Campuses />} />
-          <Route path="/wizarding-campuses/:id" element={<Campus />} />
+          {/* <Route path="/wizarding-campuses/:id" element={<Campus />} /> */}
           <Route path="/students" element={<Students />} />
           <Route path="/students/:id" element={<Student />} />
       </Routes>
