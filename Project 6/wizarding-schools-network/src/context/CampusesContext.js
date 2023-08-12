@@ -1,41 +1,19 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
-
+import React, { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 const CampusesContext = createContext();
-
 export function CampusesProvider({ children }) {
   const [campuses, setCampuses] = useState([]);
-  // const [campus, setCampus] = useState([]);
-  const { id } = useParams();
+  const [campus, setCampus] = useState([]);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    async function fetchCampuses() {
-      const { data } = await axios.get("api/campuses");
-      setCampuses(data);
-    }
-    fetchCampuses();
-  }, []);
-
-  // useEffect(() => {
-  //   async function fetchCampus(){
-  //     const { data } = await axios.get(`/api/campuses/${id}`);
-  //     setCampus(data);
-  //   } fetchCampus();
-  // }, [id]);
-
   function handleClick(){
         navigate(-1);
     }
-
   return (
-    <CampusesContext.Provider value={{campuses, handleClick}}>
+    <CampusesContext.Provider value={{campuses, campus, handleClick, setCampuses, setCampus}}>
       {children}
     </CampusesContext.Provider>
   );
 }
-
 export function useCampuses() {
   return useContext(CampusesContext);
 };

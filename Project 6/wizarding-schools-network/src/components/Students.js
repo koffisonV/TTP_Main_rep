@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useStudents } from "../context/StudentsContext";
 
 export default function Students(){
-    const [students, setStudents] = useState([]);
+    const {students, setStudents} = useStudents();
 
     useEffect(() => {
         async function fecthStudents(){

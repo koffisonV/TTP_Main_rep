@@ -1,11 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useStudents } from "../context/StudentsContext";
 
 export default function Student(){
-    const [student, setStudent] = useState([]);
+    const { student, setStudent, handleClick } = useStudents();
     const { id } = useParams();
-    const navigate = useNavigate();
 
     useEffect(() => {
         async function fecthStudent(){
@@ -14,10 +14,6 @@ export default function Student(){
         }
         fecthStudent();
     }, [id]);
-
-    function handleClick(){
-        navigate(-1);
-    }
 
     return(
         <>

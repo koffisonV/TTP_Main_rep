@@ -1,13 +1,13 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useCampuses } from "../context/CampusesContext";
+import { useStudents } from "../context/StudentsContext";
 
 export default function Campus(){
-    // const [campus, setCampus] = useState([]);
     const { id } = useParams();
-    // const navigate = useNavigate();
     const {campus, setCampus, handleClick} = useCampuses();
+    const { students } = useStudents();
 
     useEffect(() => {
         async function fecthCampus(){
@@ -16,16 +16,23 @@ export default function Campus(){
         }
         fecthCampus();
     }, [id]);
-    // function handleClick(){
-    //     navigate(-1);
-    // }
+
     return(
         <>
-            <img src={campus.imageUrl} />
+            <img src={campus.imageUrl} alt={campus.name}/>
             <h2>{campus.name}</h2>
             <h3>{campus.address}</h3>
             <p>{campus.description}</p>
-            <br/>
+            <br />
+
+            <h3>Students:</h3>
+            <ul>
+                {students.map(student => (
+                    <li key={student.id}>
+                        <p>{student.firstName} {student.lastName}</p>
+                    </li>
+                ))}
+            </ul>
             <button onClick={handleClick}>Go Back</button>
         </>
     )

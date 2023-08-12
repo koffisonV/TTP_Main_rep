@@ -1,11 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCampuses } from "../context/CampusesContext";
 
 export default function Campuses(){
-    // const [campuses, setCampuses] = useState([]);
-    const { campuses, setCampuses } = useCampuses();
+    const { campuses, setCampuses, handleClick } = useCampuses();
 
     useEffect(() => {
         async function fecthCampuses(){
@@ -28,6 +27,7 @@ export default function Campuses(){
                 </li>
             ))}
         </ul>
+        {/* <link><button>Go Back</button></link> */}
         </>
     )
 }
