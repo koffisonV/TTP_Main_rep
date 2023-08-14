@@ -39,15 +39,25 @@ export default function EditCampus() {
   return (
     <div>
       <h2>Edit Campus</h2>
-      <label>
-        Name:
-        <input type="text" value={newName} onChange={(e) => setNewName(e.target.value)} />
-      </label>
-      <label>
-        Address:
-        <input type="text" value={newAddress} onChange={(e) => setNewAddress(e.target.value)} />
-      </label>
-      <button onClick={handleUpdate}>Update</button>
+      <form>
+        <label>
+          Name:
+          <input 
+            type="text" 
+            value={newName} 
+            onChange={(e) => setNewName(e.target.value)} 
+          />
+        </label>
+        <label>
+          Address:
+          <input 
+            type="text" 
+            value={newAddress} 
+            onChange={(e) => setNewAddress(e.target.value)} 
+          />
+        </label>
+      </form>
+      <button type="submit" onClick={handleUpdate}>Update</button>
       <button onClick={handleClick}>Go Back</button>
     </div>
   );
