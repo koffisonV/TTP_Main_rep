@@ -71,7 +71,7 @@ const Students = db.define("student",{
       }
   },
   campusId: {
-    type: Sequelize.INTEGER, // Assuming campusId is a foreign key linking to Campus
+    type: Sequelize.INTEGER,
     allowNull: false,
   },
 })

@@ -1,0 +1,8 @@
+nav li{
+    margin: 10px;
+    display: inline-block;
+}
+
+nav a{
+    text-decoration: none;
+}
