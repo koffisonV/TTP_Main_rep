@@ -41,30 +41,47 @@ export default function Characters() {
   }
 
   return (
-    <>
-      <ul>
-        <h1 className="text-4xl font-light text-center mt-4 mb-4">
-          List of all Characters
-        </h1>
+    <div className="container mx-auto px-4">
+      <h1 className="text-5xl font-light text-center pt-40 mb-2">
+        List of all Characters
+      </h1>
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {characters.map((character) => (
           <li key={character.id}>
-            <article className="p-3 m-3">
+            <article className="bg-white p-6 rounded-lg shadow-md">
               <Link to={`/characters/${character.id}`}>
-                <img src={character.image} alt={character.name} />
-                <h2>{character.name}</h2>
+                <img
+                  src={character.image}
+                  alt={character.name}
+                  className="w-full h-auto object-cover rounded"
+                />
+                <h2 className="mt-4 text-lg font-semibold">{character.name}</h2>
               </Link>
-              <small>{character.species}</small>
-              {/* <p>{character.status}</p>
-            <p>{character.gender}</p>
-            <small>{character.origin.name}</small> */}
+              <p className="mt-2 text-gray-600">{character.species}</p>
             </article>
           </li>
         ))}
       </ul>
-      <div>
-        <button onClick={handlePrevPage}>Prev</button>
-        <button onClick={handleNextPage}>Next</button>
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={handlePrevPage}
+          className={`px-4 py-2 bg-orange-500 mr-4 rounded hover:bg-orange-700 focus:outline-none ${
+            currentPage === 1 ? "cursor-not-allowed" : "cursor-pointer"
+          }`}
+          disabled={currentPage === 1}
+        >
+          Prev
+        </button>
+        <button
+          onClick={handleNextPage}
+          className={`px-4 py-2 bg-orange-500 mr-4 rounded hover:bg-orange-700 focus:outline-none ${
+            currentPage === totalPages ? "cursor-not-allowed" : "cursor-pointer"
+          }`}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
       </div>
-    </>
+    </div>
   );
 }

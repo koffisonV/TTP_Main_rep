@@ -41,23 +41,41 @@ export default function Episodes() {
   }
 
   return (
-    <>
-      <ul>
-        <h1>Episodes</h1>
+    <div className="container mx-auto px-4">
+        <h1 className="text-5xl font-light text-center pt-40 mb-2">Episodes</h1>
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {episodes.map((episode) => (
           <li key={episode.id}>
             {/* <Link to={`/characters/${character.id}`}> */}
+            <article className="bg-white p-6 rounded-lg shadow-md">
             <h2>{episode.name}</h2>
             <p>{episode.air_date}</p>
             <p>{episode.episode}</p>
             {/* </Link> */}
+            </article>
           </li>
         ))}
       </ul>
-      <div>
-        <button onClick={handlePrevPage}>Prev</button>
-        <button onClick={handleNextPage}>Next</button>
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={handlePrevPage}
+          className={`px-4 py-2 bg-orange-500 mr-4 rounded hover:bg-orange-700 focus:outline-none ${
+            currentPage === 1 ? "cursor-not-allowed" : "cursor-pointer"
+          }`}
+          disabled={currentPage === 1}
+        >
+          Prev
+        </button>
+        <button
+          onClick={handleNextPage}
+          className={`px-4 py-2 bg-orange-500 mr-4 rounded hover:bg-orange-700 focus:outline-none ${
+            currentPage === totalPages ? "cursor-not-allowed" : "cursor-pointer"
+          }`}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
       </div>
-    </>
+    </div>
   );
 }

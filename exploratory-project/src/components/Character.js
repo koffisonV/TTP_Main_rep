@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useCharacters } from "../context/CharactersContext";
 
 export default function Character() {
-  const {character, setCharacter} = useCharacters();
+  const { character, setCharacter } = useCharacters();
 
   const { id } = useParams();
   const naviagte = useNavigate();
@@ -32,20 +32,34 @@ export default function Character() {
 
   return (
     <>
-      <div className="flex items-center place-content-center m-5">
-        <img src={character.image} alt={character.name} />
-        <div className="pl-7">
-          <h2>Name: {character.name}</h2>
-          <p>Status: {character.status}</p>
-          <p>Species: {character.species}</p>
-          <p>Gender: {character.gender}</p>
-          {/* <small>{character.origin.name}</small> */}
-          {character.origin && <small>Origin: {character.origin.name}</small>}
+      <h2 className="text-5xl font-light text-center pt-40 pb-3">
+        {character.name}
+      </h2>
+      <div className="flex flex-col items-center justify-center m-5">
+        <img
+          src={character.image}
+          alt={character.name}
+          className="w-32 h-32 sm:w-48 sm:h-48 rounded-full mb-4 sm:mb-0"
+        />
+        <div className="mt-4 sm:pl-8 text-center sm:text-left">
+          <p className="mb-2 text-2xl">Status: {character.status}</p>
+          <span className="mb-2">Species: {character.species}</span>
+          <p className="mb-2">Gender: {character.gender}</p>
+          {character.origin && (
+            <p className="text-gray-600 italic">
+              Origin: {character.origin.name}
+            </p>
+          )}
         </div>
       </div>
-      <button className="p-2 m-2 rounded-full bg-sky-200" onClick={handleClick}>
-        Go Back
-      </button>
+      <div className="flex justify-center">
+        <button
+          className="px-6 py-2 mt-6 rounded-full bg-blue-500 hover:bg-blue-600 text-white focus:outline-none focus:ring focus:ring-blue-200"
+          onClick={handleClick}
+        >
+          Go Back
+        </button>
+      </div>
     </>
   );
 }
