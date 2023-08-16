@@ -5,10 +5,14 @@ import Characters from "./components/Characters";
 import Character from "./components/Character";
 import Locations from "./components/Locations";
 import Episodes from "./components/Episodes";
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <>
+    <div>
+    <Nav />
+    <div>
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/characters" element={<Characters />} />
@@ -16,6 +20,8 @@ function App() {
         <Route path="/locations" element={<Locations />} />
         <Route path="/episodes" element={<Episodes />} />
       </Routes>
+      </div>
+      </div>
     </>
   );
 }

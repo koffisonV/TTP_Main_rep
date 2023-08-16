@@ -1,11 +1,17 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useCharacters } from "../context/CharactersContext";
 
-const Characters = () => {
-  const [characters, setCharacters] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+export default function Characters() {
+  const {
+    characters,
+    setCharacters,
+    currentPage,
+    totalPages,
+    setCurrentPage,
+    setTotalPages,
+  } = useCharacters();
 
   useEffect(() => {
     try {
@@ -22,32 +28,36 @@ const Characters = () => {
     }
   }, [currentPage]);
 
-  const handlePrevPage = () => {
+  function handlePrevPage() {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
-  };
+  }
 
-  const handleNextPage = () => {
+  function handleNextPage() {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
-  };
+  }
 
   return (
     <>
       <ul>
-        <h1>List of all Characters</h1>
+        <h1 className="text-4xl font-light text-center mt-4 mb-4">
+          List of all Characters
+        </h1>
         {characters.map((character) => (
           <li key={character.id}>
-            <Link to={`/characters/${character.id}`}>
-              <img src={character.image} alt={character.name} />
-              <h2>{character.name}</h2>
-            </Link>
-            <small>{character.species}</small>
-            {/* <p>{character.status}</p>
+            <article className="p-3 m-3">
+              <Link to={`/characters/${character.id}`}>
+                <img src={character.image} alt={character.name} />
+                <h2>{character.name}</h2>
+              </Link>
+              <small>{character.species}</small>
+              {/* <p>{character.status}</p>
             <p>{character.gender}</p>
             <small>{character.origin.name}</small> */}
+            </article>
           </li>
         ))}
       </ul>
@@ -57,6 +67,4 @@ const Characters = () => {
       </div>
     </>
   );
-};
-
-export default Characters;
+}
