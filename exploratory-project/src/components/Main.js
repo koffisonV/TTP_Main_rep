@@ -5,9 +5,6 @@ import Animation from "./animation.gif"
 export default function Main() {
   return (
     <>
-      {/* <h1 className="text-6xl font-light text-center pt-40 mb-2">
-        Rick & Morty
-      </h1> */}
       <div className="flex justify-center"><img src={Animation} alt="Rick and Morty" className="pt-40 mb-2"/></div>
       <p className="text-center text-xl text-gray-600 p-7 m-7">
         "The series follows the misadventures of Rick Sanchez, a cynical mad

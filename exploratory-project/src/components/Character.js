@@ -8,9 +8,6 @@ export default function Character() {
 
   const { id } = useParams();
   const naviagte = useNavigate();
-  //   useEffect(()=>{
-  //     console.log(character);
-  //   })
 
   useEffect(() => {
     try {

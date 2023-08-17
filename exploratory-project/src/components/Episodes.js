@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-// import { Link } from "react-router-dom";
 import { useEpisodes } from "../context/EpisodesContext";
 
 export default function Episodes() {
@@ -46,12 +45,10 @@ export default function Episodes() {
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {episodes.map((episode) => (
           <li key={episode.id}>
-            {/* <Link to={`/characters/${character.id}`}> */}
             <article className="bg-white p-6 rounded-lg shadow-md">
             <h2>{episode.name}</h2>
             <p>{episode.air_date}</p>
             <p>{episode.episode}</p>
-            {/* </Link> */}
             </article>
           </li>
         ))}
