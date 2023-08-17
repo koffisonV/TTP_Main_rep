@@ -54,7 +54,7 @@ export default function Character() {
       </div>
       <div className="flex justify-center">
         <button
-          className="px-6 py-2 mt-6 rounded-full bg-blue-500 hover:bg-blue-600 text-white focus:outline-none focus:ring focus:ring-blue-200"
+          className="px-4 py-2 bg-orange-500 mr-4 rounded hover:bg-orange-700 focus:outline-none"
           onClick={handleClick}
         >
           Go Back
