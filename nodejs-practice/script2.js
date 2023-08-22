@@ -1,10 +1,9 @@
-console.log("koffison2")
-
-// Output this value
-// module.exports = 15;
-
-// you can see this as an object
-module.exports = {
-name:"Koffison",
-age: 21
-}
+export default function Toppings () { 
+    return ( 
+        <>
+       <li>Pepperoni</li> 
+       <li>Peppers</li> 
+       <li>Pineapple</li> 
+       <li>Mushrooms</li> </>
+  ); 
+ }

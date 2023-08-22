@@ -34,6 +34,15 @@ router.post("/pokemons", async (req,res,next) =>{
     }
 });
 
+app.post("/restaurant", async (req,res,next) =>{
+    try{
+        const newRestaurant = await Restaurant.create(req.body);
+        res.send(newRestaurant);
+    } catch(error){
+        next(error);
+    }
+});
+
 router.put("/pokemons/:id", async (req,res,next) => {
     try{
         const pokemon = await Pokemon.findByPk(req.params.id);
