@@ -1,16 +1,22 @@
-# Rick and Morty React App
+# Rick and Morty Explorer
 
-This project revolves around the series of the TV show Rick and Morty. The goal of this project is not only to introduce
-the show to the user, but to show the different characters, locations and episodes throughout this series.
-We value the User Experience of the users, reason why we develop a clean, minimaliste and easy to use website. Enjoy!!
+## Overview
+Welcome to the Rick and Morty Explorer – an interactive web application that delves into the fantastic world of the beloved TV series, Rick and Morty. Our mission is to introduce users to the captivating universe of the show, showcasing its diverse characters, intriguing locations, and unforgettable episodes. We prioritize user experience, which is why we've designed a sleek, minimalist, and user-friendly website for your enjoyment.
 
+## Tools & Features
+**React:** We've built this project using the power of React to ensure a seamless and dynamic user experience.
 
-## Tools & Functionality
+**Nav bar:** The navigation is made easier using a navigation bar that navigate to different pages on the website. A 📺 icon on the home screen that directs the user to a website where they can watch the show, and a next/previous button to display the next elements of the location and character's page.
 
-Of course this project was not only created using React, but we made use of powerfull components such as Tailwind CSS for the styling,
-and the Rick & Morty API for the content you see on the website.
+**Tailwind CSS:** The styling of the app is enhanced by the use of Tailwind CSS, providing a visually appealing and responsive design.
 
-To test this project, you can clone this repo, head to the terminal and run `npm install` to download the necessary configurations, and finally run `npm start`
-in your terminal and watch the magic happen...
+**Rick & Morty API:** To populate the website with rich content, we've integrated the Rick & Morty API, offering you a comprehensive insight into the show's world.
 
+## Getting Started
+To explore this project, follow these simple steps:
 
+1. Clone this repository to your local machine.
+2. Open your terminal and run `npm install` to install the necessary dependencies and configurations.
+3. Finally, execute `npm start` in your terminal and witness the magic unfold as you embark on a journey through the Rick and Morty multiverse.
+
+Immerse yourself in the fantastic realm of Rick and Morty – start exploring today!
