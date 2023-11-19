@@ -1,13 +1,13 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCharacters } from "../context/CharactersContext";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Scrollbar, A11y } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Scrollbar, A11y } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 export default function Characters() {
   const {
@@ -19,6 +19,32 @@ export default function Characters() {
     setTotalPages,
   } = useCharacters();
 
+  const [slidesPerView, setSlidesPerView] = useState(4);
+  const [spaceBetween, setSpaceBetween] = useState(50);
+
+  useEffect(() => {
+    const updateSwiperParams = () => {
+      if (window.innerWidth <= 600) {
+        setSlidesPerView(2);
+        setSpaceBetween(10);
+      } else {
+        setSlidesPerView(4);
+        setSpaceBetween(50);
+      }
+    };
+
+    // Initial setup
+    updateSwiperParams();
+
+    // Update Swiper parameters on window resize
+    window.addEventListener("resize", updateSwiperParams);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", updateSwiperParams);
+    };
+  }, []);
+
   useEffect(() => {
     try {
       async function fetchCharacters() {
@@ -29,8 +55,8 @@ export default function Characters() {
         setTotalPages(data.info.pages);
       }
       fetchCharacters();
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }, [currentPage]);
 
@@ -51,36 +77,30 @@ export default function Characters() {
       <h1 className="text-5xl font-light text-center pt-40 mb-2">
         List of all Characters
       </h1>
-      {/* <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> */}
       <Swiper
-      spaceBetween={50}
-      slidesPerView={4}
-      modules={[Navigation, Scrollbar, A11y]}
-      navigation
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      className=""
-      // onSlideChange={() => console.log('slide change')}
-      // onSwiper={(swiper) => console.log(swiper)}
-    >
-    {characters.map((character) => (
-        <SwiperSlide 
-          className="bg-white p-6 rounded-lg shadow-lg" 
-          key={character.id}
-        >
-          <Link to={`/characters/${character.id}`}>
-          <img
-            src={character.image}
-            alt={character.name}
-            className="w-full h-auto object-cover rounded"
-          />
-                <h2 className="mt-4 text-lg font-semibold">{character.name}</h2>
-              </Link>
-              <p className="mt-2 text-gray-600">{character.species}</p>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-      {/* </ul> */}
+        spaceBetween={spaceBetween}
+        slidesPerView={slidesPerView}
+        modules={[Navigation, Scrollbar, A11y]}
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+      >
+        {characters.map((character) => (
+          <SwiperSlide
+            className="bg-white p-6 rounded-lg shadow-lg"
+            key={character.id}
+          >
+            <Link to={`/characters/${character.id}`}>
+              <img
+                src={character.image}
+                alt={character.name}
+                className="w-full h-auto object-cover rounded"
+              />
+              <h2 className="mt-4 text-lg font-semibold">{character.name}</h2>
+            </Link>
+            <p className="mt-2 text-gray-600">{character.species}</p>
+          </SwiperSlide>
+        ))}
+      </Swiper>
       <div className="flex justify-center mt-6">
         <button
           onClick={handlePrevPage}
